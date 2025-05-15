@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styleRegister.css" />
+  <title>Register</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mulah">MULAH</h1>
+    
+    <div class="welcome">
+      <h1 class="register">Registration</h1>
+      <h4 class="instruction">Please fill up your details</h4>
+    </div>
+
+    <form id="registrationForm">
+      <div class="registrationForm">
+        <div class="label-input">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter Name" required />
+        </div>
+
+        <div class="label-input">
+          <label for="birthday">Birthday</label>
+          <div class="birthday">
+            <input class="day" type="text" id="day" placeholder="DD" required />
+            <input class="month" type="text" id="month" placeholder="MM" required />
+            <input class="year" type="text" id="year" placeholder="YYYY" required />
+          </div>
+        </div>
+
+        <div class="label-input">
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="Email Address" required />
+        </div>
+
+        <div class="checkbox">
+          <input type="checkbox" id="noEmail" />
+          <p>No email address</p>
+        </div>
+
+        <button type="submit">Continue</button>
+      </div>
+    </form>
+
+    <div class="bottom-p">
+      <span class="p1">Powered by</span>
+      <span class="p2">MulahRewards.com</span>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("registrationForm").onsubmit = function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const day = document.getElementById("day").value;
+      const month = document.getElementById("month").value;
+      const year = document.getElementById("year").value;
+      const emailInput = document.getElementById("email");
+      const noEmail = document.getElementById("noEmail").checked;
+
+      const birthday = `${day}/${month}/${year}`;
+      const email = noEmail ? "No email provided" : emailInput.value;
+
+      sessionStorage.setItem("name", name);
+      sessionStorage.setItem("birthday", birthday);
+      sessionStorage.setItem("email", email);
+
+      window.location.href = "page3.html";
+    };
+  </script>
+</body>
+</html>

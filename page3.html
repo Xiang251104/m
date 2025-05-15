@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mulah - Summary</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: #fefefe;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      font-family: Arial, sans-serif;
+    }
+
+    h1{
+        font-size: 2.5em;
+        color: #ff8401;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .details {
+      margin-top: 30px;
+    }
+    .detail {
+      margin-bottom: 20px;
+    }
+    .label {
+      font-weight: bold;
+      color: #555;
+    }
+    .value {
+      margin-left: 10px;
+      color: #222;
+    }
+    .bottom-p {
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>MULAH</h1>
+    <h2>Your Submitted Information</h2>
+
+    <div class="details">
+      <div class="detail">
+        <span class="label">Phone Number:</span>
+        <span class="value" id="displayPhone"></span>
+      </div>
+      <div class="detail">
+        <span class="label">Name:</span>
+        <span class="value" id="displayName"></span>
+      </div>
+      <div class="detail">
+        <span class="label">Email:</span>
+        <span class="value" id="displayEmail"></span>
+      </div>
+      <div class="detail">
+        <span class="label">Birthday:</span>
+        <span class="value" id="displayBirthday"></span>
+      </div>
+      <div class ="Points">
+        <span class="label">Loyalty Points:</span>
+        <span class="value" id="displayPoints">100</span>
+      </div>
+    </div>
+
+    <div class="bottom-p">
+      <span class="p1">Powered by</span>
+      <span class="p2">MulahRewards.com</span>
+    </div>
+  </div>
+
+  <script>
+    const phone = sessionStorage.getItem("phoneNumber") || "Not provided";
+    const name = sessionStorage.getItem("name") || "Not provided";
+    const email = sessionStorage.getItem("email") || "Not provided";
+    const birthday = sessionStorage.getItem("birthday") || "Not provided";
+
+    document.getElementById("displayPhone").textContent = "+60" + phone;
+    document.getElementById("displayName").textContent = name;
+    document.getElementById("displayEmail").textContent = email;
+    document.getElementById("displayBirthday").textContent = birthday;
+  </script>
+</body>
+</html>
